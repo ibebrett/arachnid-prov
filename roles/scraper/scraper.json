@@ -1,0 +1,25 @@
+{
+  "variables": {
+    "aws_secret_key": "",
+    "aws_access_key": ""  
+  },
+  "builders": [{
+    "type": "amazon-ebs",
+    "access_key": "{{user `aws_access_key`}}",
+    "secret_key": "{{user `aws_secret_key`}}",
+    "region": "us-east-1",
+    "source_ami": "ami-98aa1cf0",
+    "instance_type": "t1.micro",
+    "ssh_username": "ubuntu",
+    "ami_name": "scraper 0.1"
+    
+  }],
+  "provisioners": [{
+     "type": "file",
+     "source": "files/phantomjs-1.9.7-linux-x86_64.tar.bz2",
+     "destination": "/tmp/phantomjs.tar.bz2"
+  }, {
+     "type": "shell",
+     "script": "provision.sh"
+  }]
+}
