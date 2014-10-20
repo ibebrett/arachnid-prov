@@ -19,6 +19,10 @@
      "source": "files/phantomjs-1.9.7-linux-x86_64.tar.bz2",
      "destination": "/tmp/phantomjs.tar.bz2"
   }, {
+     "type": "file",
+     "source": "files/scraper.conf",
+     "destination": "/tmp/scraper.conf"
+  }, {
      "type": "shell",
      "script": "provision.sh"
   }]
